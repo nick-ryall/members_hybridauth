@@ -35,10 +35,10 @@
 
     protected function __trigger(){
       // Hybrid Auth
-      require_once( './hybridauth/Hybrid/Auth.php' );
+      require_once( EXTENSIONS . '/members_hybridauth/lib/hybridauth/Hybrid/Auth.php' );
 
       // Hybrid auth config path
-      $config = './hybridauth/config.php';
+      $config = EXTENSIONS . '/members_hybridauth/lib/hybridauth/config.php';
 
       // Initialize Hybrid_Auth with a given file
       $hybridauth = new Hybrid_Auth( $config );
