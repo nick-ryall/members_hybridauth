@@ -96,6 +96,24 @@
             // Member login
             self::$Members->getMemberDriver()->login($creds, true);
 
+            // Get the id of the logged in member.
+            $member_id = (string)self::$Members->getMemberDriver()->getMemberID();
+
+            // Save the Provider details to the existing account. This will link the account
+            // to the most recent provider used to login.
+            $_POST = array(
+              'fields' => array(
+                'provider' => $adapter->id,
+                'identifier' => $user_profile->identifier,
+              ),
+              'id' => $member_id,
+              'action' => array(
+                self::ROOTELEMENT => true
+              )
+            );
+
+            include(TOOLKIT . '/events/event.section.php');
+
             // Redirect to current path or home screen.
             redirect($redirect_url);
 

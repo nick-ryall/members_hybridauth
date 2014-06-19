@@ -13,7 +13,7 @@
 
 return 
 	array(
-		"base_url" => "http://localhost/rescuenav/extensions/members_hybridauth/lib/hybridauth/",
+		"base_url" => URL . "/extensions/members_hybridauth/lib/hybridauth/",
 
 		"providers" => array ( 
 			// openid providers
@@ -32,13 +32,12 @@ return
 
 			"Google" => array ( 
 				"enabled" => true,
-				"keys"    => array ( "id" => "401157979739-882bl391dtn4pp048n8mdgp173suh23a.apps.googleusercontent.com", "secret" => "Jo_Hzmu_-kX6AJxDCz8Kcly-" )
+				"keys"    => array ( "id" => Symphony::Configuration()->get('googleid', 'members_hybridauth'), "secret" => Symphony::Configuration()->get('googlesecret', 'members_hybridauth') )
 			),
 
 			"Facebook" => array ( 
 				"enabled" => true,
-				"keys"    => array ( "id" => "813267892025981", "secret" => "0762963d9ac92ef908472460b2c7ce4e" )
-				// "display" => "popup"
+				"keys"    => array ( "id" => Symphony::Configuration()->get('facebookid', 'members_hybridauth'), "secret" => Symphony::Configuration()->get('facebooksecret', 'members_hybridauth') )
 			),
 
 			"Twitter" => array ( 
